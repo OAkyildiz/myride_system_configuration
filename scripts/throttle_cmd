@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+cansend can0 092#05CC0000003F0000

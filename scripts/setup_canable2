@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# $1: Can interface number, def:0
+
+if [[ -n $1 ]] ;
+then
+    DEV_ID=$1
+else
+    DEV_ID=0
+fi
+
+sudo ip link set can${DEV_ID} type can bitrate 125000
+sudo ifconfig can${DEV_ID} up
+

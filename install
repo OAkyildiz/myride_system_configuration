@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# create a path for scripts
+sudo mkdir -p /opt/bin/
+sudo chmod 666 /opt/bin
+sudo ln -sf $PWD/scripts /opt/bin/myRide
+sudo chown $USER /opt/bin/myRide
+echo "Added scripst to PATH"
+
+
+# update udev rules
+cd scripts
+./push_udev
+echo "updated UDEV rules"
+
+# update the path in bashrc
+echo "export PATH=$PATH:/opt/bin/:/opt/bin/myride" >> ~/.bashrc
+
+# Add this user to the dialout group for serial devices
+sudo groupadd dialout
+sudo usermod -aG dialout $USER 
+echo "Added ${USER} to dialout"

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+if [[ -n $1 ]] ;
+then
+    DEV_ID=$1
+else
+    DEV_ID=0
+fi
+
+cansend can${DEV_ID} 090#05CC000000000000

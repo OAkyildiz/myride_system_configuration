@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# this could directly be a python script but easier this way
+python3 oscc-check.py -V kia_soul_ev
+

@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+
+#CANable 2
+sudo slcand -o -c -s0 /dev/ttyACM0 can1
+sudo ifconfig can1 up
+
+
+#OSCC  
+sudo ip link set can0 type can bitrate 115200
+sudo ifconfig can0 up

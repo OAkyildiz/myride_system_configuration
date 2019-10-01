@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+candump can0 | cantools decode oscc/api/include/can_protocols/oscc.dbc
