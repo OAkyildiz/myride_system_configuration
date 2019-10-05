@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+### set TX2 to max performance mode
+sudo nvpmodel -m 0
+sudo jetson_clocks
+
+exit
