@@ -6,3 +6,4 @@ sudo ln -sf $PWD/../udev/* /etc/udev/rules.d/
 sudo udevadm control --reload && sudo udevadm trigger
 
 
+echo "updated UDEV rules"

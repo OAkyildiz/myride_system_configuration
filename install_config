@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# create a path for scripts
+
+#TODO: tie-in CMAKE vars for paths
+USR_PATH='/opt/bin'
+MYRIDE_DIR="${USR_PATH}/myRide"
+
+sudo mkdir -p ${USR_PATH}
+sudo chmod 666 ${USR_PATH}
+sudo rm  -rf ${MYRIDE_DIR}
+sudo ln -sf $PWD/scripts ${MYRIDE_DIR}
+sudo chown $USER ${MYRIDE_DIR}
+echo "Added scripst to PATH"
+
+
+# update udev rules
+cd scripts
+./push_udev
+
+# update the path in bashrc
+echo "export PATH=$PATH:${USR_PATH}:${MYRIDE_DIR}" >> ~/.bashrc
+
+# Add this user to the dialout group for serial devices
+sudo groupadd dialout
+sudo usermod -aG dialout $USER 
+echo "Added ${USER} to dialout"
