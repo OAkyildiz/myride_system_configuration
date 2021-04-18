@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo ln -sf $PWD/../services/* /etc/systemd/system/
+sudo ln -sf $PWD/../systemd/* /etc/systemd/system/
 
 sudo ln -sf $PWD/../udev/* /etc/udev/rules.d/
 sudo udevadm control --reload && sudo udevadm trigger

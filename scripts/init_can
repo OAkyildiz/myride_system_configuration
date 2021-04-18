@@ -2,12 +2,14 @@
 
 # $1: Can interface number, def:0
 
-if [[ -n $1 ]] ;
-then
-    DEV_ID=$1
-else
-    DEV_ID=0
-fi
+timestamp=$(date +%Y-%m-%d_%H-%M-%S)
+
+logfile=~/boot.log
+
+DEV_ID=${1:-0}
+
+echo $timestamp >> $logfile
+echo $DEV_ID >> $logfile
 
 sudo ip link set can${DEV_ID} type can bitrate 500000
 sudo ifconfig can${DEV_ID} up

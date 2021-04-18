@@ -2,13 +2,15 @@
 
 # create a path for scripts
 sudo mkdir -p /opt/bin/
-sudo chmod 666 /opt/bin
+sudo chmod 775 /opt/bin
+#sudo chown $USER /opt/bin
 sudo ln -sf $PWD/scripts /opt/bin/myRide
 sudo chown $USER /opt/bin/myRide
-echo "Added scripst to PATH"
+echo "Added scripts to PATH"
 
 
 # update udev rules
+sudo chmod +x scripts/*
 cd scripts
 ./push_udev
 echo "updated UDEV rules"

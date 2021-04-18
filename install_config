@@ -7,11 +7,15 @@ USR_PATH='/opt/bin'
 MYRIDE_DIR="${USR_PATH}/myRide"
 
 sudo mkdir -p ${USR_PATH}
-sudo chmod 666 ${USR_PATH}
+sudo chmod 755 ${USR_PATH}
+sudo chown $USER ${USR_PATH}
+
 sudo rm  -rf ${MYRIDE_DIR}
-sudo ln -sf $PWD/scripts ${MYRIDE_DIR}
+ln -sf $PWD/scripts ${MYRIDE_DIR}
 sudo chown $USER ${MYRIDE_DIR}
+
 echo "Added scripst to PATH"
+
 
 
 # update udev rules
