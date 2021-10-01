@@ -1,0 +1,13 @@
+[Unit]
+Description=Autorun actions for CAN devices
+After=network-online.target
+
+
+
+[Service]
+#Type=oneshot
+ExecStart=/opt/bin/myRide/init_can 0 && /opt/bin/myRide/init_can 1
+
+[Install]
+WantedBy=multi-user.target
+#Wants=network-online.target

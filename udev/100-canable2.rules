@@ -1,5 +1,5 @@
 #CANable 2 udev rules - brings up can interface for CANable devices. Some ssytems can't acces to the serial attr without actually powering teh device ( through link up). So, this script was modified to forgo naming with serial #
 
-SUBSYSTEM=="usb", ATTR{idVendor}=="1d50", ATTR{idProduct}=="606f", MODE="0666",  GROUP+="dialout", PROGRAM="/bin/sh -c 'echo $((%n-1))'", SYMLINK+="can%c", RUN+="/bin/sh -c /opt/bin/myRide/init_can %n"
+SUBSYSTEM=="usb", ATTR{idVendor}=="1d50", ATTR{idProduct}=="606f", MODE="0666",  GROUP+="dialout", PROGRAM="/bin/sh -c 'echo $((%n-1))'", SYMLINK+="can%c", RUN+="/opt/bin/myRide/init_can %c"
 #SUBSYSTEM=="usb", ATTR{idVendor}=="1d50", ATTR{idProduct}=="606f", ATTR{serial}=="00240007574D430820333735", MODE="0666",  GROUP+="dialout", SYMLINK+="can0", RUN+="/opt/bin/myRide/init_can 0"
 #SUBSYSTEM=="usb", ATTR{idVendor}=="0d50", ATTR{idProduct}=="606f", ATTR{serial}=="00270006524E430D20373533", MODE="0666",  GROUP+="dialout", SYMLINK+="can1", RUN+="/opt/bin/myRide/init_can 1"
